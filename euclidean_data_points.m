@@ -11,33 +11,34 @@ addpath("../clique-top")
 rng(1234)
 % ===================================
 %% Parameters
+size_restric = 70;
 
 % Shapes
-sphere_size_1 = 15;
-sphere_size_r = 15;
-sphere_size_s = 15;
+sphere_size_1 = 5;
+sphere_size_r = 5;
+sphere_size_s = 5;
 
-ball_points = sphere_size_1^2;
+ball_points = size_restric;
 outer_radius_b = 1.;
 sphr_scaling_factor = 0.1;
 sphr_shift_factor = 0.7;
 
-cylinder_points = ball_points;
+cylinder_points = size_restric;
 outer_radius_c = 1.;
 inner_radius_c = 0.9;
 
-plane_points = ball_points;
+plane_points = size_restric;
 
 var_1 = 0.01;
 var_scale=3;
 
-do_plot = true;
+do_plot = false;
 
 % Distances
 distance_measure = 'euclidean';
 
 % Bettis
-do_betti_analysis = false;
+do_betti_analysis = true;
 alg_name = 'split';
 dens_range = 0.6;
 
@@ -72,12 +73,12 @@ n_plane='plane';
 dataset_p = euclidean_plane(plane_points, do_plot);
 % ===================================
 %% Distances
-[dsit_matrix_sphr_1] = get_distance_matrix(dataset_1, distance_measure);
-[dsit_matrix_sphr_s] = get_distance_matrix(dataset_s, distance_measure);
-[dsit_matrix_sphr_r] = get_distance_matrix(dataset_r, distance_measure);
-[dsit_matrix_ball] = get_distance_matrix(dataset_b, distance_measure);
-[dsit_matrix_cylinder] = get_distance_matrix(dataset_c, distance_measure);
-[dsit_matrix_plane] = get_distance_matrix(dataset_p, distance_measure);
+[dsit_matrix_sphr_1] = get_distance_matrix(dataset_1, distance_measure, size_restric);
+[dsit_matrix_sphr_s] = get_distance_matrix(dataset_s, distance_measure, size_restric);
+[dsit_matrix_sphr_r] = get_distance_matrix(dataset_r, distance_measure, size_restric);
+[dsit_matrix_ball] = get_distance_matrix(dataset_b, distance_measure, size_restric);
+[dsit_matrix_cylinder] = get_distance_matrix(dataset_c, distance_measure, size_restric);
+[dsit_matrix_plane] = get_distance_matrix(dataset_p, distance_measure, size_restric);
 
 % ===================================
 %% Compute and plot Betti curves
