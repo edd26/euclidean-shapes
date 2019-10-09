@@ -11,9 +11,8 @@ addpath("../clique-top")
 rng(1234)
 % ===================================
 %% Parameters
-results_folder = 'results/';
 
-% Figures
+% Shapes
 sphere_size_1 = 15;
 sphere_size_r = 15;
 sphere_size_s = 15;
