@@ -73,27 +73,27 @@ n_plane='plane';
 dataset_p = euclidean_plane(plane_points, do_plot);
 % ===================================
 %% Distances
-[dsit_matrix_sphr_1] = get_distance_matrix(dataset_1, distance_measure, size_restric);
-[dsit_matrix_sphr_s] = get_distance_matrix(dataset_s, distance_measure, size_restric);
-[dsit_matrix_sphr_r] = get_distance_matrix(dataset_r, distance_measure, size_restric);
-[dsit_matrix_ball] = get_distance_matrix(dataset_b, distance_measure, size_restric);
-[dsit_matrix_cylinder] = get_distance_matrix(dataset_c, distance_measure, size_restric);
-[dsit_matrix_plane] = get_distance_matrix(dataset_p, distance_measure, size_restric);
+[dist_matrix_sphr_1] = get_distance_matrix(dataset_1, distance_measure, size_restric);
+[dist_matrix_sphr_s] = get_distance_matrix(dataset_s, distance_measure, size_restric);
+[dist_matrix_sphr_r] = get_distance_matrix(dataset_r, distance_measure, size_restric);
+[dist_matrix_ball] = get_distance_matrix(dataset_b, distance_measure, size_restric);
+[dist_matrix_cylinder] = get_distance_matrix(dataset_c, distance_measure, size_restric);
+[dist_matrix_plane] = get_distance_matrix(dataset_p, distance_measure, size_restric);
 
 % ===================================
 %% Compute and plot Betti curves
 if do_betti_analysis
-    compute_and_plot_bettis(dsit_matrix_sphr_1, size_restric, alg_name, ...
+    compute_and_plot_bettis(dist_matrix_sphr_1, size_restric, alg_name, ...
                                             dens_range, 'single sphere');
-    compute_and_plot_bettis(dsit_matrix_sphr_s, size_restric, alg_name, ...
+    compute_and_plot_bettis(dist_matrix_sphr_s, size_restric, alg_name, ...
                                             dens_range, 'shifted sphere');
-    compute_and_plot_bettis(dsit_matrix_sphr_r, size_restric, alg_name, ...
+    compute_and_plot_bettis(dist_matrix_sphr_r, size_restric, alg_name, ...
                                             dens_range, 'shifted sphere');
-    compute_and_plot_bettis(dsit_matrix_ball, size_restric, alg_name, ...
+    compute_and_plot_bettis(dist_matrix_ball, size_restric, alg_name, ...
                                             dens_range, 'ball');
-	compute_and_plot_bettis(dsit_matrix_cylinder, size_restric, alg_name, ...
+	compute_and_plot_bettis(dist_matrix_cylinder, size_restric, alg_name, ...
                                             dens_range, 'cylinder');
-    compute_and_plot_bettis(dsit_matrix_plane, size_restric, alg_name, ...
+    compute_and_plot_bettis(dist_matrix_plane, size_restric, alg_name, ...
                                             dens_range, 'plane');
 end
 
@@ -113,10 +113,10 @@ end
 
 if export_distances_to_csv
     prefix = strcat(distance_measure(1:3),'_dist_mat_');
-    save_matrix_to_csv(dsit_matrix_sphr_r,csv_folder, strcat(prefix,n_sphr_r));
-    save_matrix_to_csv(dsit_matrix_sphr_s,csv_folder, strcat(prefix,n_sphr_s));
-    save_matrix_to_csv(dsit_matrix_ball,csv_folder, strcat(prefix,n_ball));
-    save_matrix_to_csv(dsit_matrix_cylinder,csv_folder, ...
+    save_matrix_to_csv(dist_matrix_sphr_r,csv_folder, strcat(prefix,n_sphr_r));
+    save_matrix_to_csv(dist_matrix_sphr_s,csv_folder, strcat(prefix,n_sphr_s));
+    save_matrix_to_csv(dist_matrix_ball,csv_folder, strcat(prefix,n_ball));
+    save_matrix_to_csv(dist_matrix_cylinder,csv_folder, ...
                                                     strcat(prefix,n_cylin));
-    save_matrix_to_csv(dsit_matrix_plane,csv_folder, strcat(prefix,n_plane));
+    save_matrix_to_csv(dist_matrix_plane,csv_folder, strcat(prefix,n_plane));
 end
