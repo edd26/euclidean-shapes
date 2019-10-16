@@ -16,7 +16,7 @@ try
     plot(edgeDensities, bettiCurves(:,3), 'b--')
 catch error
     fprintf("Betti number 3 was not printed- it was not computed\n")
-end.
+end
 
 title_text = strcat("Betti curves for ", dataset_name," dataset, ",...
             algorihm_name, " alg., matrix size=",num2str(matrix_size));
