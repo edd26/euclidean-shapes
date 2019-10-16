@@ -12,7 +12,7 @@ rng(1234)
 
 % ===================================
 %% Hyperparameters
-size_restric = 70;
+size_restric = 10;
 
 % Distances
 distance_measure = 'euclidean';

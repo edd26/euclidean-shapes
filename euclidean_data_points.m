@@ -11,7 +11,7 @@ addpath("../clique-top")
 rng(1234)
 % ===================================
 %% Parameters
-size_restric = 70;
+size_restric = 73;
 
 % Shapes
 sphere_size_1 = 5;
