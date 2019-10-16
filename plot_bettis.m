@@ -7,8 +7,16 @@ function figure_handle = plot_bettis(edgeDensities,bettiCurves,...
 figure_handle = figure;
 plot(edgeDensities, bettiCurves(:,1), '--', 'Color', [0.929 0.694 0.125]);
 hold on
-plot(edgeDensities, bettiCurves(:,2), 'r--')
-plot(edgeDensities, bettiCurves(:,3), 'b--')
+try
+    plot(edgeDensities, bettiCurves(:,2), 'r--')
+catch error
+    fprintf("Betti number 3 was not printed- it was not computed.\n")
+end
+try
+    plot(edgeDensities, bettiCurves(:,3), 'b--')
+catch error
+    fprintf("Betti number 3 was not printed- it was not computed\n")
+end.
 
 title_text = strcat("Betti curves for ", dataset_name," dataset, ",...
             algorihm_name, " alg., matrix size=",num2str(matrix_size));
