@@ -12,7 +12,7 @@ rng(1234)
 
 % ===================================
 %% Hyperparameters
-size_restric = 10;
+size_restric = 70;
 
 % Distances
 distance_measure = 'euclidean';
@@ -23,7 +23,7 @@ alg_name = 'split';
 dens_range = 0.6;
 
 % Export
-export_matrix_to_csv = false;
+export_matrix_to_csv = true;
 results_folder = 'results/';
 
 % ===================================
@@ -33,12 +33,12 @@ matrix_col_num = size_restric;
 matrix_row_num = matrix_col_num;
 
 numbered_matrix = zeros(matrix_row_num, matrix_col_num);
-set_of_numbers = 1:1:(matrix_col_num*(matrix_col_num-1));
+set_of_numbers = 1:1:((matrix_col_num*(matrix_col_num-1))/2);
 set_of_numbers_rand = set_of_numbers(randperm(length(set_of_numbers)));
 
 iterator = 1;
-for row = 1:matrix_col_num
-    for column = row+1:matrix_row_num
+for row = 1:matrix_row_num
+    for column = row+1:matrix_col_num
         numbered_matrix(row, column) = set_of_numbers_rand(iterator);
         numbered_matrix(column, row) = set_of_numbers_rand(iterator);
         iterator = iterator + 1; 
